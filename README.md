@@ -1,3 +1,4 @@
+# EcoRover: Autonomous Edge AI Waste Collection Robot
 **EcoRover** is an autonomous mobile robot designed to detect, track, and collect recyclable waste in real-time. It leverages **Edge AI** for low-latency vision processing and a microcontroller for precise actuation.
 
 This project demonstrates the deployment of **Quantized Deep Learning models (TinyML)** on resource-constrained edge devices to solve real-world environmental challenges.
