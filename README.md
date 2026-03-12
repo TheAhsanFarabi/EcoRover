@@ -33,10 +33,9 @@ This project demonstrates how **edge AI can be integrated with robotics for real
 ---
 # Demo
 
-Add demo video or GIF here.
 
 ```
-![EcoRover Demo](demo.jpg)
+![Alt Text](demo.jpg)
 ```
 
 ---
