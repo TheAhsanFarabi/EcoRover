@@ -1,33 +1,144 @@
-# EcoRover: Autonomous Edge AI Waste Collection Robot
-**EcoRover** is an autonomous mobile robot designed to detect, track, and collect recyclable waste in real-time. It leverages **Edge AI** for low-latency vision processing and a microcontroller for precise actuation.
+# EcoRover — AI-Powered Autonomous Waste Collection Robot
 
-This project demonstrates the deployment of **Quantized Deep Learning models (TinyML)** on resource-constrained edge devices to solve real-world environmental challenges.
+EcoRover is an intelligent robotic system designed to **detect and collect recyclable waste** using computer vision and robotics.
+
+The system integrates **YOLO-based object detection**, **Raspberry Pi edge computing**, **Arduino-based motor control**, and a **4-DOF robotic arm** to automatically identify and collect recyclable materials.
+
+Currently, EcoRover can detect and collect three types of waste:
+
+- Plastic  
+- Paper  
+- Aluminum  
+
+The goal of this project is to explore how **AI + robotics** can help automate waste sorting and contribute to a cleaner environment.
+
+---
+
+# Project Overview
+
+EcoRover combines **embedded systems, computer vision, and robotics** into a single autonomous platform.
+
+### Workflow
+
+1. The camera captures real-time images  
+2. The **YOLOv11n model** detects recyclable objects  
+3. The **Raspberry Pi** processes detection results  
+4. The **Arduino** controls rover navigation and obstacle avoidance  
+5. The **robotic arm** collects the detected waste  
+
+This project demonstrates how **edge AI can be integrated with robotics for real-world applications**.
+
+---
+
+# System Architecture
+
+```
+Camera → Raspberry Pi (YOLO Inference) → Arduino Controller → Motors + Robotic Arm
+```
+
+---
+
+# Hardware Components
+
+| Component | Description |
+|-----------|-------------|
+| Raspberry Pi | Runs YOLO model for real-time object detection |
+| Arduino | Controls rover movement and sensors |
+| Camera Module | Captures images for object detection |
+| L298N Motor Drivers | Drives the BO motors for locomotion |
+| 6-Wheel Chassis | Robot platform with BO motors |
+| BO Motors | Provide movement for the rover |
+| 4-DOF Robotic Arm | Picks up detected waste objects |
+| MG90S Servo Motors | Control the robotic arm joints |
+| Ultrasonic Sensor | Enables obstacle avoidance |
+| 3S LiPo Battery | Main power source for the rover |
+
+---
+
+# AI Model
+
+The object detection system is built using **YOLOv11n** trained on a **custom synthetic dataset**.
+
+### Dataset Classes
+
+- Plastic  
+- Paper  
+- Aluminum  
+
+### Training Results
+
+| Parameter | Value |
+|-----------|------|
+| Model | YOLOv11n |
+| Dataset | Custom Synthetic Dataset |
+| Detection Accuracy | **80%+** |
+| Deployment Device | Raspberry Pi |
+
+---
+
+# Hardware Design
+
+## Rover Platform
+
+- 6-wheel robotic chassis  
+- BO motors for locomotion  
+- Dual **L298N motor drivers**
+
+## Robotic Arm
+
+- **4 Degrees of Freedom**
+- **MG90S servo motors**
+- Designed for lightweight waste pickup
+
+During testing several servos failed due to torque limitations, but the final configuration achieved stable motion and pickup capability.
+
+---
+
+# Power System
+
+The rover is powered by a **3S LiPo battery**.
+
+Different components required different voltage levels:
+
+- Motor drivers (L298N)
+- Servo motors (MG90S)
+- Raspberry Pi
+
+Voltage regulation was implemented to stabilize the system.
+
+---
+
+# Experimental Results
+
+EcoRover was tested with three types of recyclable waste:
+
+- Plastic  
+- Paper  
+- Aluminum  
+
+The rover successfully:
+
+- Detected waste using YOLO  
+- Navigated toward the target  
+- Picked the object using the robotic arm  
+
+Although still a prototype, EcoRover demonstrates the feasibility of **autonomous waste collection robots**.
+
+---
+# Demo
+
+Add demo video or GIF here.
+
+```
+![EcoRover Demo](demo.gif)
+```
+
+---
 
 
 
 ---
 
-## 🚀 Key Features
+# License
 
-* **Edge AI Vision:** Runs a custom-trained **YOLOv11n** model optimized via **TFLite quantization** on a Raspberry Pi 5, achieving real-time inference (~20-30 FPS).
-* **Sensor Fusion:** Combines visual data with ultrasonic distance sensors for robust obstacle avoidance and path planning.
-* **Dual-Controller Architecture:**
-    * **Brain (RPi 5):** Handles heavy computation, object detection, and decision logic.
-    * **Body (Arduino):** Handles PWM motor control, inverse kinematics for the robotic arm, and sensor readings.
-* **Adaptive Communication:** Utilizes a custom **UART (Serial)** protocol for low-latency command transmission between the Pi and Arduino.
-* **Automated Retrieval:** Features a 2-DOF robotic arm with a custom "Grab-and-Bin" sequence triggered autonomously upon object locking.
-
----
-
-## 🛠️ Hardware Stack
-
-| Component | Specification | Role |
-| :--- | :--- | :--- |
-| **SBC** | Raspberry Pi 5 (8GB) | Main compute unit, Vision processing |
-| **Microcontroller** | Arduino Uno R3 | Motor & Servo controller |
-| **Camera** | Pi Camera Module 3 / USB Webcam | Visual input for YOLO model |
-| **Actuators** | 4x DC Motors + 2x MG996R Servos | Movement & Robotic Arm |
-| **Driver** | L298N Motor Driver | Power distribution to motors |
-| **Power** | 3S LiPo Battery (11.1V) | System power supply |
-
----
+This project is licensed under the **MIT License**.
