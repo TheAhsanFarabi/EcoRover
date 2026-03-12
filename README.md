@@ -30,6 +30,18 @@ This project demonstrates how **edge AI can be integrated with robotics for real
 
 ---
 
+---
+# Demo
+
+Add demo video or GIF here.
+
+```
+![EcoRover Demo](demo.jpg)
+```
+
+---
+
+
 # System Architecture
 
 ```
@@ -124,16 +136,6 @@ The rover successfully:
 
 Although still a prototype, EcoRover demonstrates the feasibility of **autonomous waste collection robots**.
 
----
-# Demo
-
-Add demo video or GIF here.
-
-```
-![EcoRover Demo](demo.gif)
-```
-
----
 
 
 
