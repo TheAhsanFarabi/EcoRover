@@ -35,7 +35,7 @@ This project demonstrates how **edge AI can be integrated with robotics for real
 
 
 ```
-![Alt Text](demo.jpg)
+![Demo](demo.jpg)
 ```
 
 ---
