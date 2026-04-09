@@ -30,16 +30,6 @@ This project demonstrates how **edge AI can be integrated with robotics for real
 
 ---
 
----
-# Demo
-
-
-```
-![Demo](demo.jpg)
-```
-
----
-
 
 # System Architecture
 
